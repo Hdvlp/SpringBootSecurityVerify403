@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: ${processAppDataSourceDriverClassName}
+    url: ${processAppDataSourceUrl}
+    username: ${processAppDataSourceUsername}
+    password: ${processAppDataSourcePassword}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: ${processAppDatabasePlatform}
+    properties:
+      hibernate:
+        "[show_sql]": ${processAppDebugging}
+        "[use_sql_comments]": ${processAppDebugging}
+        "[format_sql]": ${processAppDebugging}
+        "[highlight_sql]": ${processAppDebugging}
+        connection:
+          characterEncoding: UTF-8
+          charSet: UTF-8
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    cache: false
+  web:
+    resources:
+      add-mappings: true
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
